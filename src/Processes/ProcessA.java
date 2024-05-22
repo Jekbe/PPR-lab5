@@ -5,17 +5,16 @@ import java.util.Random;
 
 public class ProcessA extends Thread {
     private final Session session;
-    private final Connection con;
     private final MessageProducer producerAB;
     private final MessageConsumer consumerCA;
     private final MessageConsumer consumerAD;
-    Random random;
+    private final Random random;
 
     public ProcessA() throws JMSException, jakarta.jms.JMSException {
         random = new Random();
 
         ConnectionFactory factory = Config.JMS.getConnectionFactory();
-        con = factory.createConnection();
+        Connection con = factory.createConnection();
         con.start();
 
         session = con.createSession(false, Session.AUTO_ACKNOWLEDGE);
