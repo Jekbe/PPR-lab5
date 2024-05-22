@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="activemq-all-6.1.2">
+    <CLASSES>
+      <root url="jar://E:/Studia/PPR/Lab5/apache-activemq-6.1.2-bin/apache-activemq-6.1.2/activemq-all-6.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
