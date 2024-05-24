@@ -1,9 +1,6 @@
 package Config;
 
-import Processes.ProcessA;
-import Processes.ProcessB;
-import Processes.ProcessC;
-import Processes.ProcessD;
+import Processes.*;
 
 import javax.jms.JMSException;
 import java.io.IOException;

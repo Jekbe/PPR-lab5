@@ -27,7 +27,7 @@ public class ProcessA extends Thread {
 
     @Override
     public void run(){
-        ObjectMessage message;
+        ObjectMessage objectMessage;
         double[] reciveTab, tab;
 
         while (true){
@@ -35,16 +35,16 @@ public class ProcessA extends Thread {
 
             System.out.println("Send to B");
             try{
-                message = session.createObjectMessage(tab);
-                producerAB.send(message);
-                producerAD.send(message);
+                objectMessage = session.createObjectMessage(tab);
+                producerAB.send(objectMessage);
+                producerAD.send(objectMessage);
 
                 waitRandomTime();
-                message = (ObjectMessage) consumerCA.receive();
-                if (message == null) break;
-                reciveTab = (double[]) message.getObject();
+                objectMessage = (ObjectMessage) consumerCA.receive();
+                if (objectMessage == null) break;
+                reciveTab = (double[]) objectMessage.getObject();
 
-                System.out.println("Otrzymana tablica: " + Arrays.toString(reciveTab) + "; Destination: " + message.getJMSDestination().toString());
+                System.out.println("Otrzymana tablica: " + Arrays.toString(reciveTab) + "; Destination: " + objectMessage.getJMSDestination().toString());
                 waitRandomTime();
             } catch (JMSException e){
                 System.out.println("Błąd: " + e);
